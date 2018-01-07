@@ -9,6 +9,10 @@
   "author": "Quve dev.",
   "license": "ISC",
   "dependencies": {
-    "koa": "^2.4.1"
+    "config": "^1.29.0",
+    "koa": "^2.4.1",
+    "koa-router": "^7.3.0",
+    "koa-static": "^4.0.2",
+    "koa-subdomain": "^2.1.0"
   }
 }
