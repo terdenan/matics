@@ -1,11 +1,19 @@
+const path = require('path');
 const Koa = require('koa');
 const Subdomain = require('koa-subdomain');
 const serve = require('koa-static');
+const render = require('koa-ejs');
 const config = require('config');
 
 const app = new Koa();
 const subdomain = new Subdomain();
 const mainRouter = require('./routers/app');
+
+render(app, {
+  root: path.join(__dirname, 'views'),
+  layout: false,
+  cache: true
+});
 
 // logger
 app.use(async (ctx, next) => {
@@ -13,6 +21,11 @@ app.use(async (ctx, next) => {
     await next();
     const ms = Date.now() - start;
     console.log(`${ctx.method} ${ctx.header.host + ctx.url} - ${ms} ms`);
+});
+
+app.use(async (ctx, next) => {
+    ctx.state.testovoe = "ALO BLYA";
+    await next();
 });
 
 // error handler
