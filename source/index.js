@@ -7,6 +7,13 @@ const app = new Koa();
 const subdomain = new Subdomain();
 const mainRouter = require('./routers/app');
 
+render(app, {
+  root: path.join(__dirname, 'views'),
+  viewExt: 'ejs',
+  layout: false,
+  cache: false
+});
+
 // logger
 app.use(async (ctx, next) => {
     const start = Date.now();
