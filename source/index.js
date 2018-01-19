@@ -11,8 +11,9 @@ const mainRouter = require('./routers/app');
 
 render(app, {
   root: path.join(__dirname, 'views'),
+  viewExt: 'ejs',
   layout: false,
-  cache: true
+  cache: false
 });
 
 // logger
