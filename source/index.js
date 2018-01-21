@@ -23,11 +23,6 @@ app.use(async (ctx, next) => {
     console.log(`${ctx.method} ${ctx.header.host + ctx.url} - ${ms} ms`);
 });
 
-app.use(async (ctx, next) => {
-    ctx.state.testovoe = "ALO BLYA";
-    await next();
-});
-
 // error handler
 app.use(async (ctx, next) => {
     try {
