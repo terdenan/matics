@@ -3,11 +3,21 @@ const Koa = require('koa');
 const Subdomain = require('koa-subdomain');
 const serve = require('koa-static');
 const render = require('koa-ejs');
+const bodyParser = require('koa-bodyparser')();
 const config = require('config');
 
 const app = new Koa();
 const subdomain = new Subdomain();
 const mainRouter = require('./routers/app');
+
+const NewsModel = require('./models/news');
+
+const mongoose = require('mongoose');
+
+const ApplicationError = require('libs/application-error');
+
+mongoose.connect(config.mongo.uri, {useMongoClient: true});
+mongoose.Promise = global.Promise;
 
 render(app, {
   root: path.join(__dirname, 'views'),
@@ -30,13 +40,21 @@ app.use(async (ctx, next) => {
         await next();
     } catch (err) {
         console.log(err);
-        ctx.status = 500;
+        ctx.status = err instanceof ApplicationError ? err.status : 500;
         ctx.body = {
             message: err.message
         };
     }
 });
 
+app.use(async (ctx, next) => {
+    ctx.newsModel = new NewsModel();
+
+    await next();
+});
+
+
+app.use(bodyParser);
 app.use(serve('./public'));
 
 subdomain.use('', mainRouter.routes());

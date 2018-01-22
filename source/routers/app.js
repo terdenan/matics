@@ -1,5 +1,11 @@
 const router = require('koa-router')();
 
+const createNewsController = require('../controllers/news/create');
+const getNewsController = require('../controllers/news/get-news');
+
+router.post('/news', createNewsController);
+router.get('/news/:title', getNewsController);
+
 router.get('/', async ctx => {
     ctx.body = 'main page';
     await ctx.render('main/index');
