@@ -2,6 +2,7 @@
 
 const DbModel = require('./common/dbModel');
 const ApplicationError = require('libs/application-error');
+const mongoose = require('mongoose');
 
 class News extends DbModel {
     constructor() {
@@ -9,7 +10,6 @@ class News extends DbModel {
     }
 
     async create(news) {
-        console.log(news);
         const isDataValid = news
             && Object.prototype.hasOwnProperty.call(news, 'title')
             && Object.prototype.hasOwnProperty.call(news, 'cyrillicTitle')
@@ -25,11 +25,12 @@ class News extends DbModel {
         throw new ApplicationError('News data is invalid', 400);
     }
 
-    async remove(id) {
-        const card = await this.get(id);
-        if (!card) {
-            throw new ApplicationError(`Card with ID=${id} not found`, 404);
+    async remove(title) {
+        const news = await this.getBy({title});
+        if (!news) {
+            throw new ApplicationError(`News with Title=${id} not found`, 404);
         }
+        const id = mongoose.Types.ObjectId(news._id);
         await this._remove(id);
     }
 

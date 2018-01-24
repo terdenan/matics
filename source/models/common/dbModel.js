@@ -26,7 +26,6 @@ class DbModel extends Model {
     }
 
     async getBy(cond) {
-        console.log(cond);
         const data = await this._MongooseModel
             .findOne(cond)
             .lean()
@@ -47,9 +46,9 @@ class DbModel extends Model {
             .create(item);
     }
 
-    async _remove(id) {
+    async _remove(_id) {
         await this._MongooseModel
-            .remove({id});
+            .remove({_id});
     }
 
     async _update(cond, set) {

@@ -2,8 +2,10 @@ const router = require('koa-router')();
 
 const createNewsController = require('../controllers/news/create');
 const getNewsController = require('../controllers/news/get-news');
+const deleteNewsController = require('../controllers/news/delete');
 
 router.post('/news', createNewsController);
+router.delete('/news/:title', deleteNewsController);
 router.get('/news/:title', getNewsController);
 
 router.get('/', async ctx => {
