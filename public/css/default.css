@@ -46,10 +46,10 @@ footer p {
 
 .landing footer p {
   margin-bottom: 10px;
+  font-weight:  normal;
 }
 
 footer h6 {
-  font-weight: 600;
   color: #788594;
   margin: 5px 0;
 }
@@ -104,6 +104,11 @@ input[type=text], input[type=submit], textarea{
   padding: 20px 0;
 }
 
+.navbar-inverse {
+  background-color: #354251;
+  padding: 10px 0;
+}
+
 .navbar-inverse .navbar-nav .nav-link {
   color: #fff!important;
   font-size: 16px;
@@ -114,12 +119,22 @@ input[type=text], input[type=submit], textarea{
   color: #f3f3f3!important;
 }
 
-.navbar-inverse {
+.navbar-transparent .navbar-nav .nav-link {
+  color: #fff!important;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.navbar-transparent .navbar-nav .nav-link:hover {
+  color: #f3f3f3!important;
+}
+
+.navbar-transparent {
   background: transparent;
 }
 
 .main-content {
-    margin-top: 70px;
+    margin-top: 30px;
 }
 
 .main-offset {
@@ -159,6 +174,7 @@ hr {
 
 .navbar-nav>li>a {
   font-size: 15px;
+  color:  #fff;
 }
 
 .news-card {
@@ -235,6 +251,10 @@ hr {
 
 .news-card-button {
   width: 50%;
+}
+
+.news-card-button .btn {
+  font-size: 13px;
 }
 
 .offset-left-50 {
@@ -457,6 +477,8 @@ hr {
 .post-title {
    padding-bottom: 5px;
    border-bottom: 1px solid #e6e9ed;
+   margin: 10px 0 20px;
+   font-size: 30px;
 }
 
 .post-visualization h2 {margin-top: 20px;}

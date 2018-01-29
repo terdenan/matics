@@ -10,32 +10,37 @@
     <meta name="author" content="Quve Development">
     <title>Последние новости портала Matics.kz</title>
     <!-- Bootstrap Core CSS-->
-    <link href="/css/bootstrap.css" rel="stylesheet">
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
     <!--Custom CSS	-->
     <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="/css/font-awesome.min.css">
     <link href="/css/animate.css" rel="stylesheet">
     <link href="/css/default.css" rel="stylesheet">
     <!--Scripts-->
-    <script src="/js/jquery.min.js"></script>
+    <script type="text/javascript" src="/js/jquery.min.js"></script>
+    <script type="text/javascript" src="/js/tether.min.js"></script>
+    <script type="text/javascript" src="/js/bootstrap.min.js"></script>
     <!--[if IE]><link rel="stylesheet" href="https://rawgit.com/codefucker/finalReject/master/reject/reject.css" media="all"><script type="text/javascript" src="https://rawgit.com/codefucker/finalReject/master/reject/reject.min.js"></script><![endif]-->
 </head>
 
 <body class="landing">
     <!-- NAVBAR-->
-    <nav class="navbar navbar-inverse navbar-fixed-top no-margin">
-        <div class="container-fluid">
-            <div class="navbar-header"><button type="button" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false" class="navbar-toggle collapsed"><span class="sr-only">Меню</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
-                <a
-                    href="/" class="navbar-brand"><img src="/images/logo.svg" alt="Matics" title="Matics - Logo" itemprop="logo"><span>Matics.kz</span></a>
-            </div>
-            <div id="navbar-collapse" class="collapse navbar-collapse">
-                <ul class="nav navbar-nav">
-                    <li><a href="/">Главная</a></li>
-                    <li><a href="/prices">Расценки и способы оплаты</a></li>
-                </ul>
-                <ul class="nav navbar-nav navbar-right">
-                    <li><a href="/sign-in"><i aria-hidden="true" class="fa fa-lock"> </i>&nbsp;Вход и регистрация</a></li>
+    <nav class="navbar navbar-toggleable-md navbar-inverse">
+        <div class="container d-flex align-items-center">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Меню">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbar">
+                <a class="navbar-brand navbar-item" href="/">
+                  <img src="/images/logo.png" class="d-inline-block align-top mr-2" title="Matics - Logo" itemprop="logo">
+                </a>
+                <ul class="navbar-nav ml-auto mt-2 mt-lg-0 d-flex align-items-center">
+                  <li class="nav-item navbar-item ml-4">
+                    <a class="nav-link" href="/news">Новости</a>
+                  </li>
+                  <li class="nav-item navbar-item">
+                    <a class="nav-link btn btn-light-blue ml-4 px-4" href="/sign-in">Личный кабинет &nbsp;<i class="fa fa-arrow-right" aria-hidden="true"></i></a>
+                  </li>
                 </ul>
             </div>
         </div>
@@ -43,8 +48,8 @@
     <!-- CONTENT-->
     <div class="container main-content">
         <ol class="breadcrumb">
-            <li><a href="/">Главная</a></li>
-            <li class="active">Новости</li>
+            <li class="breadcrumb-item"><a href="/">Главная</a></li>
+            <li class="breadcrumb-item active">Новости</li>
         </ol>
         <div class="page-header">
             <h1>Последние новости портала Matics.kz </h1>
@@ -61,8 +66,13 @@
                         <p>3 ноября Apple запустила продажи iPhone X с «безрамочным» экраном и системой распознавания лица Face ID. Первые российские владельцы новых смартфонов рассказали</p>
                     </div>
                     <div class="news-card-footer">
-                        <div class="news-card-footer-author"><img src="/images/editor-img.png"><span>Ольга Сладких</span></div>
-                        <div class="news-card-button"><a href="news/iphone-x-den-pervii-mneniya-predprinimatelei-i-pokupatelei" class="btn btn-succes btn-block">Перейти к новости <i aria-hidden="true" class="fa fa-angle-right"></i></a></div>
+                        <div class="news-card-footer-author"><img src="/images/editor-img.png">
+                            <span>Дмитрий Ли</span>
+                        </div>
+                        <div class="news-card-button">
+                            <a href="news/iphone-x-den-pervii-mneniya-predprinimatelei-i-pokupatelei" class="btn btn-block">Перейти к новости <i aria-hidden="true" class="fa fa-angle-right"></i>
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
