@@ -21,4 +21,9 @@ router.get('/single-news', async ctx => {
     await ctx.render('main/single-news');
 });
 
+
+router.get('/admin/news', async ctx => {
+    await ctx.render('admin/news');
+});
+
 module.exports = router;

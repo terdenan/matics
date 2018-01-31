@@ -1,0 +1,130 @@
+'use strict'
+
+function MarkdownParser() {
+
+    this.elemTitle = document.getElementById("news-title");
+    this.elemCyrillicTitle = document.getElementById("cyrillicTitle");
+    this.elemDescription = document.getElementById("short-description");
+    this.elemFile = document.getElementById("file");
+    this.elemFileSpan = document.getElementById("file").querySelector('span');
+    this.elemMd = document.getElementById("markdown-textarea");
+    this.elemVisualization = document.getElementById("visualization");
+    this.elemAlertBox = document.getElementById("alerts");
+    const self = this;
+
+    this.elemMd.onkeyup = function(e) {
+        self.elemVisualization.innerHTML = self.parse().replace(/\n/g, "<br>");
+    }
+
+
+    this.parse = function() {
+        const html = marked(self.elemMd.value);
+        return html;
+    }
+
+    this.clearAll = function() {
+        self.elemTitle.value = "";
+        self.elemDescription.value = "";
+        self.elemMd.value = "";
+        self.elemVisualization.innerHTML = "";
+        self.elemFile.value = "";
+        self.elemFileSpan.innerHTML = "Выбрать изображение";
+    }
+
+    this.setAlert = function(type) {
+        switch(type) {
+            case 'success':
+                self.elemAlertBox.innerHTML = 
+                    `<div class='alert alert-success alert-dismissable'>
+                        <a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a>
+                        <strong>Готово!</strong> Новость успешно добавлена.
+                    </div>`;
+                break;
+            case 'error':
+                self.elemAlertBox.innerHTML = 
+                    `<div class='alert alert-danger alert-dismissable'>
+                        <a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a>
+                        <strong>Произошла ошибка!</strong> Попробуйте позже.
+                    </div>`;
+                break;
+        }
+    }
+}
+
+const parser = new MarkdownParser();
+
+function publish() {
+    var file = $('#file').prop('files')[0];
+    var formData = new FormData();
+    var title = parser.elemTitle.value.replace(/\s+/g, ' ').trim();
+
+    // formData.append('title', title);
+    // formData.append('cyrillicTitle', parser.elemCyrillicTitle.innerHTML);
+    // formData.append('description', parser.elemDescription.value);
+    // formData.append('body', parser.elemMd.value);
+    // formData.append('photoUrl', 'https://mathlab.kz/uploads/1509897643422-RSD1Oma3vg8.jpg')
+    // formData.append('file', file);
+
+    if (!$('#publish').hasClass("disabled") && !$("#file").val() == '') {
+        $.ajax({
+            type: "post",
+            url: "/news",
+            //data: formData,
+            //processData: false,
+            //contentType: false,
+            data: {
+                title: title,
+                cyrillicTitle: parser.elemCyrillicTitle.innerHTML,
+                description: parser.elemDescription.value,
+                body: parser.elemMd.value,
+                photoUrl: 'https://mathlab.kz/uploads/1509897643422-RSD1Oma3vg8.jpg'
+            },
+            success: function(data) {
+                parser.setAlert('success');
+                parser.clearAll();
+            },
+            error: function(data){
+                parser.setAlert('error')
+            }
+        });
+    }
+    else {
+        $("#file-error").html("Вы не загрузили изображение обложки")
+    }
+}
+
+var module = {};
+
+  function init(cyrillicToTranslit) {
+    var source = $('#news-title');
+    var result = $('#cyrillicTitle');
+    var value;
+
+    source.on('keyup', function(e) {
+      update(value = e.target.value, '-');
+    });
+
+    function update(value, spaceRep) {
+        result.html(cyrillicToTranslit
+            .transform(value, '-')
+            .replace(/[^a-z0-9\-]/gi, "")
+            .replace(/\-+/g, "-")
+        )
+    }
+  }
+
+var input = document.getElementById("file"),
+    label = input.nextElementSibling,
+    labelVal = label.innerHTML,
+    fileName = '';
+
+input.addEventListener('change', function(e){
+    fileName = e.target.value.split( '\\' ).pop();
+
+    if( fileName ) {
+        label.querySelector('span').innerHTML = fileName;
+        $("#file-error").html('');
+    }
+    else
+        label.innerHTML = labelVal;
+});

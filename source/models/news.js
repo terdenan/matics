@@ -18,6 +18,7 @@ class News extends DbModel {
             && Object.prototype.hasOwnProperty.call(news, 'photoUrl');
 
         if (isDataValid) {
+            console.log("OK");
             await this._insert(news);
             return news;
         }
