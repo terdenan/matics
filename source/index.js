@@ -16,7 +16,11 @@ const mongoose = require('mongoose');
 
 const ApplicationError = require('libs/application-error');
 
-mongoose.connect(config.mongo.uri, {useMongoClient: true});
+mongoose.connect(config.mongo.uri, {useMongoClient: true}, function(err){
+    if (err) {
+        throw new ApplicationError('Connection to MongoDB is lost');
+    }
+});
 mongoose.Promise = global.Promise;
 
 render(app, {
@@ -52,6 +56,8 @@ app.use(async (ctx, next) => {
 
     await next();
 });
+
+console.log(config.mongo.uri)
 
 
 app.use(bodyParser);
