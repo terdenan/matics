@@ -12,6 +12,7 @@
   "dependencies": {
     "8.5.0": "^1.0.1",
     "config": "^1.29.0",
+    "cyrillic-to-translit-js": "^2.0.0",
     "koa": "^2.4.1",
     "koa-bodyparser": "^4.2.0",
     "koa-ejs": "^4.1.0",
