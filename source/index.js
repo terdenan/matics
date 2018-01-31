@@ -17,6 +17,7 @@ const mongoose = require('mongoose');
 const ApplicationError = require('libs/application-error');
 
 mongoose.connect(config.mongo.uri, {useMongoClient: true}, function(err){
+    console.log(err);
     throw new ApplicationError('Connection to MongoDB is lost');
 });
 mongoose.Promise = global.Promise;
