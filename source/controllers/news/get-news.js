@@ -3,6 +3,9 @@
 module.exports = async (ctx) =>  {
     const title = ctx.params.title;
     const news = await ctx.newsModel.getBy({title: title});
-    ctx.status = 200;
-    ctx.body = news;
+    if (news) {
+        await ctx.render('main/single-news', {news});
+    } else {
+        ctx.redirect('/404');
+    }
 };

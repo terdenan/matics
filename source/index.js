@@ -4,6 +4,7 @@ const Subdomain = require('koa-subdomain');
 const serve = require('koa-static');
 const render = require('koa-ejs');
 const bodyParser = require('koa-bodyparser')();
+const koaBody = require('koa-body');
 const config = require('config');
 
 const app = new Koa();
@@ -24,10 +25,10 @@ mongoose.connect(config.mongo.uri, {useMongoClient: true}, function(err){
 mongoose.Promise = global.Promise;
 
 render(app, {
-  root: path.join(__dirname, 'views'),
-  viewExt: 'ejs',
-  layout: false,
-  cache: false
+    root: path.join(__dirname, 'views'),
+    viewExt: 'ejs',
+    layout: false,
+    cache: false
 });
 
 // logger
@@ -53,14 +54,12 @@ app.use(async (ctx, next) => {
 
 app.use(async (ctx, next) => {
     ctx.newsModel = new NewsModel();
-
     await next();
 });
 
-console.log(config.mongo.uri)
-
 
 app.use(bodyParser);
+app.use(koaBody({ multipart: true }));
 app.use(serve('./public'));
 
 subdomain.use('', mainRouter.routes());

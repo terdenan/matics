@@ -41,6 +41,16 @@ class DbModel extends Model {
         return data;
     }
 
+    async getRecent(count) {
+        const data = await this._MongooseModel
+            .find()
+            .lean()
+            .sort({'date': -1})
+            .limit(count)
+            .exec();
+        return data;
+    }
+
     async _insert(item) {
         await this._MongooseModel
             .create(item);

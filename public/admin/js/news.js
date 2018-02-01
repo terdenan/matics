@@ -58,27 +58,19 @@ function publish() {
     var formData = new FormData();
     var title = parser.elemTitle.value.replace(/\s+/g, ' ').trim();
 
-    // formData.append('title', title);
-    // formData.append('cyrillicTitle', parser.elemCyrillicTitle.innerHTML);
-    // formData.append('description', parser.elemDescription.value);
-    // formData.append('body', parser.elemMd.value);
-    // formData.append('photoUrl', 'https://mathlab.kz/uploads/1509897643422-RSD1Oma3vg8.jpg')
-    // formData.append('file', file);
+    formData.append('title', title);
+    formData.append('cyrillicTitle', parser.elemCyrillicTitle.innerHTML);
+    formData.append('description', parser.elemDescription.value);
+    formData.append('body', parser.elemMd.value);
+    formData.append('file', file);
 
     if (!$('#publish').hasClass("disabled") && !$("#file").val() == '') {
         $.ajax({
             type: "post",
             url: "/news",
-            //data: formData,
-            //processData: false,
-            //contentType: false,
-            data: {
-                title: title,
-                cyrillicTitle: parser.elemCyrillicTitle.innerHTML,
-                description: parser.elemDescription.value,
-                body: parser.elemMd.value,
-                photoUrl: 'https://mathlab.kz/uploads/1509897643422-RSD1Oma3vg8.jpg'
-            },
+            data: formData,
+            processData: false,
+            contentType: false,
             success: function(data) {
                 parser.setAlert('success');
                 parser.clearAll();
