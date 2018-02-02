@@ -1,4 +1,5 @@
 const path = require('path');
+const http = require('http');
 const Koa = require('koa');
 const Subdomain = require('koa-subdomain');
 const serve = require('koa-static');
@@ -65,6 +66,6 @@ app.use(serve('./public'));
 subdomain.use('', mainRouter.routes());
 app.use(subdomain.routes());
 
-app.listen(config.server.port, () => {
+http.createServer(app.callback()).listen(config.server.port, () => {
     console.log(`Matics listening on port ${config.server.port}`);
 });
