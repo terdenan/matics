@@ -1,12 +1,24 @@
 const path = require('path');
+<<<<<<< HEAD
 const http = require('http');
+=======
+const config = require('config');
+const fs = require('fs');
+const http = require('http');
+const https = require('https');
+
+>>>>>>> dev
 const Koa = require('koa');
 const Subdomain = require('koa-subdomain');
+const compress = require('koa-compress');
 const serve = require('koa-static');
 const render = require('koa-ejs');
 const bodyParser = require('koa-bodyparser')();
+<<<<<<< HEAD
 const koaBody = require('koa-body');
 const config = require('config');
+=======
+>>>>>>> dev
 
 const app = new Koa();
 const subdomain = new Subdomain();
@@ -18,8 +30,14 @@ const mongoose = require('mongoose');
 
 const ApplicationError = require('libs/application-error');
 
+const isProduction = process.env.NODE_ENV === 'production';
+
 mongoose.connect(config.mongo.uri, {useMongoClient: true}, function(err){
     if (err) {
+<<<<<<< HEAD
+=======
+        console.log(err);
+>>>>>>> dev
         throw new ApplicationError('Connection to MongoDB is lost');
     }
 });
@@ -32,13 +50,15 @@ render(app, {
     cache: false
 });
 
-// logger
-app.use(async (ctx, next) => {
-    const start = Date.now();
-    await next();
-    const ms = Date.now() - start;
-    console.log(`${ctx.method} ${ctx.header.host + ctx.url} - ${ms} ms`);
-});
+if (!isProduction) {
+    // logger
+    app.use(async (ctx, next) => {
+        const start = Date.now();
+        await next();
+        const ms = Date.now() - start;
+        console.log(`${ctx.method} ${ctx.header.host + ctx.url} - ${ms} ms`);
+    });
+}
 
 // error handler
 app.use(async (ctx, next) => {
@@ -58,14 +78,49 @@ app.use(async (ctx, next) => {
     await next();
 });
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> dev
 app.use(bodyParser);
 app.use(koaBody({ multipart: true }));
 app.use(serve('./public'));
+app.use(compress({
+    filter: function (content_type) {
+    return /text/i.test(content_type)
+    },
+    threshold: 2048,
+    flush: require('zlib').Z_SYNC_FLUSH
+}));
 
 subdomain.use('', mainRouter.routes());
 app.use(subdomain.routes());
 
+<<<<<<< HEAD
 http.createServer(app.callback()).listen(config.server.port, () => {
     console.log(`Matics listening on port ${config.server.port}`);
 });
+=======
+const listenCallback = function () {
+    const {
+        port
+    } = this.address();
+
+    console.log(`Application started on ${port}`);
+};
+
+if (isProduction) {
+    const protocolSecrets = {
+        key: fs.readFileSync(config.ssl.key),
+        cert: fs.readFileSync(config.ssl.cert)
+    };
+
+    https
+        .createServer(protocolSecrets, app.callback())
+        .listen(config.server.port, listenCallback);
+} else {
+    http
+        .createServer(app.callback())
+        .listen(config.server.port, listenCallback);
+}
+>>>>>>> dev
