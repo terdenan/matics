@@ -1,24 +1,16 @@
 const path = require('path');
-<<<<<<< HEAD
-const http = require('http');
-=======
 const config = require('config');
 const fs = require('fs');
 const http = require('http');
 const https = require('https');
 
->>>>>>> dev
 const Koa = require('koa');
 const Subdomain = require('koa-subdomain');
 const compress = require('koa-compress');
 const serve = require('koa-static');
 const render = require('koa-ejs');
 const bodyParser = require('koa-bodyparser')();
-<<<<<<< HEAD
 const koaBody = require('koa-body');
-const config = require('config');
-=======
->>>>>>> dev
 
 const app = new Koa();
 const subdomain = new Subdomain();
@@ -34,10 +26,7 @@ const isProduction = process.env.NODE_ENV === 'production';
 
 mongoose.connect(config.mongo.uri, {useMongoClient: true}, function(err){
     if (err) {
-<<<<<<< HEAD
-=======
         console.log(err);
->>>>>>> dev
         throw new ApplicationError('Connection to MongoDB is lost');
     }
 });
@@ -78,10 +67,6 @@ app.use(async (ctx, next) => {
     await next();
 });
 
-<<<<<<< HEAD
-
-=======
->>>>>>> dev
 app.use(bodyParser);
 app.use(koaBody({ multipart: true }));
 app.use(serve('./public'));
@@ -96,11 +81,6 @@ app.use(compress({
 subdomain.use('', mainRouter.routes());
 app.use(subdomain.routes());
 
-<<<<<<< HEAD
-http.createServer(app.callback()).listen(config.server.port, () => {
-    console.log(`Matics listening on port ${config.server.port}`);
-});
-=======
 const listenCallback = function () {
     const {
         port
@@ -123,4 +103,3 @@ if (isProduction) {
         .createServer(app.callback())
         .listen(config.server.port, listenCallback);
 }
->>>>>>> dev
