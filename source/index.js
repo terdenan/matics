@@ -36,7 +36,7 @@ render(app, {
     root: path.join(__dirname, 'views'),
     viewExt: 'ejs',
     layout: false,
-    cache: false
+    cache: isProduction
 });
 
 if (!isProduction) {
