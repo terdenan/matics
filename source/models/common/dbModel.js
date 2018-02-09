@@ -41,9 +41,9 @@ class DbModel extends Model {
         return data;
     }
 
-    async getRecent(count) {
+    async getRecent(count, cond) {
         const data = await this._MongooseModel
-            .find()
+            .find(cond)
             .lean()
             .sort({'date': -1})
             .limit(count)

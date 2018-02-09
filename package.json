@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "NODE_PATH=. node ./source/index.js",
+    "start": "NODE_PATH=. nodemon ./source/index.js",
     "start:prod": "NODE_PATH=. NODE_ENV=production node ./source/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },

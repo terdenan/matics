@@ -4,9 +4,9 @@ const fs = require('fs');
 const path = require('path');
 
 async function uploadFuckingFileAndReturnFuckingPath(file) {
-    const filePath = path.join('public', 'uploads', Date.now() + '-' + file.name);
+    const filePath = path.join('uploads', Date.now() + '-' + file.name);
     const reader = fs.createReadStream(file.path);
-    const stream = fs.createWriteStream(filePath);
+    const stream = fs.createWriteStream(path.join('public', filePath));
     reader.pipe(stream);
 
     return filePath;

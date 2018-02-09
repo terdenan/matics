@@ -13,7 +13,7 @@ router.get('/', async ctx => {
 });
 
 router.get('/news', async ctx => {
-    const news = await ctx.newsModel.getRecent(3);
+    const news = await ctx.newsModel.getRecent(20);
     await ctx.render('main/news', {news});
 });
 

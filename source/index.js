@@ -86,7 +86,7 @@ const listenCallback = function () {
         port
     } = this.address();
 
-    console.log(`Application started on ${port}`);
+    console.log(`Application started on ${port}\nProduction status: ${isProduction}`);
 };
 
 if (isProduction) {

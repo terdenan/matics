@@ -57,25 +57,32 @@
     </div>
     <div class="container">
         <div class="row">
-            <div class="col-sm-4">
-                <div onClick="window.location.href='news/iphone-x-den-pervii-mneniya-predprinimatelei-i-pokupatelei'" class="news-card">
-                    <div style="background-image: url('/uploads/1509918193617-32434.jpeg')" class="news-card-img"></div>
-                    <div class="news-card-body">
-                        <h6>06.11.2017</h6>
-                        <h2>iPhone X, день первый: мнения предпринимателей и покупателей</h2>
-                        <p>3 ноября Apple запустила продажи iPhone X с «безрамочным» экраном и системой распознавания лица Face ID. Первые российские владельцы новых смартфонов рассказали</p>
-                    </div>
-                    <div class="news-card-footer">
-                        <div class="news-card-footer-author"><img src="/images/editor-img.png">
-                            <span>Дмитрий Ли</span>
+            <% news.forEach(function(item){ %>
+                <div class="col-sm-4">
+                    <div onClick="window.location.href='news/<%= item.cyrillicTitle %>'" class="news-card">
+                        <div style="background-image: url(<%= item.photoUrl %>)" class="news-card-img"></div>
+                        <div class="news-card-body">
+                            <% let year = item.date.getFullYear() %>
+                            <% let month = item.date.getMonth() + 1 %>
+                            <% let date = item.date.getDate() %>
+                            <% if (month < 10) month = '0' + month %>
+                            <% if (date < 10) date = '0' + date %>
+                            <h6><%= date %>.<%= month %>.<%= year %></h6>
+                            <h2><%= item.title %></h2>
+                            <p><%= item.description %></p>
                         </div>
-                        <div class="news-card-button">
-                            <a href="news/iphone-x-den-pervii-mneniya-predprinimatelei-i-pokupatelei" class="btn btn-block">Перейти к новости <i aria-hidden="true" class="fa fa-angle-right"></i>
-                            </a>
+                        <div class="news-card-footer">
+                            <div class="news-card-footer-author"><img src="/images/editor-img.png">
+                                <span>Дмитрий Ли</span>
+                            </div>
+                            <div class="news-card-button">
+                                <a href="news/<%= item.cyrillicTitle %>" class="btn btn-block">Перейти к новости <i aria-hidden="true" class="fa fa-angle-right"></i>
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            <% }); %>
         </div>
     </div>
     <!-- FOOTER-->

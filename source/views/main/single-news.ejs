@@ -54,19 +54,16 @@
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="/">Главная</a></li>
             <li class="breadcrumb-item"><a href="/news">Новости</a></li>
-            <li class="breadcrumb-item active">iPhone X, день первый: мнения предпринимателей и покупателей</li>
+            <li class="breadcrumb-item active"><%= news.title %></li>
         </ol>
     </div>
     <div class="container">
         <div class="row">
             <article class="col-md-8 col-lg-9">
-                <h1 class="post-title">iPhone X, день первый: мнения предпринимателей и покупателей</h1>
+                <h1 class="post-title"><%= news.title %></h1>
                 <div class="post-visualization">
-                    <div style="background-image: url('/uploads/1509918193617-32434.jpeg')" class="post-img"></div>
-                    <p>«Десятку» я ждал особенно. Это совершенно новый iPhone в отличии от нескольких предыдущих поколений. OLED-дисплей, его размер и формат, новый способ разблокировки лицом, переход на использование жестов в системе — это появилось именно
-                        в десятке. Наконец-то есть ощущение новизны, а не вторичности. Пользоваться удобно — он чуть больше по размерам iPhone 7 или 8, но значительно меньше Plus-версий. Оптическая стабилизация и более светлая оптика во второй камере
-                        делает её гораздо полезнее, теперь портреты и просто снимки на двойной модуль можно делать не только в идеально освещённом месте. Разблокировка лицом примерно вдвое медленнее TouchID, но в целом это не создаёт проблем. Поднял телефон,
-                        свайпнул вверх по экрану, смартфон разблокировался. Всегда хочется более ёмкую батарею, но пока как держится «десятка» сказать не могу, нужно больше времени для проверки.</p>
+                    <div style="background-image: url(/<%= news.photoUrl %>)" class="post-img"></div>
+                    <%= news.body %>
                 </div>
                 <div class="row">
                     <div class="col-sm-8">
@@ -74,17 +71,24 @@
                         <div id="share"></div>
                     </div>
                     <div class="col-sm-4 text-right">
-                        <div class="post-date">06.11.2017</div>
+                        <% let year = news.date.getFullYear() %>
+                        <% let month = news.date.getMonth() + 1 %>
+                        <% let date = news.date.getDate() %>
+                        <% if (month < 10) month = '0' + month %>
+                        <% if (date < 10) date = '0' + date %>
+                        <div class="post-date"><%= date %>.<%= month %>.<%= year %></div>
                     </div>
                 </div>
             </article>
             <aside class="col-md-4 col-lg-3">
                 <h4>Вам также может быть это интересно</h4>
-                <div class="another-news-block">
-                    <h4>iPhone X, день первый: мнения предпринимателей и покупателей</h4>
-                    <p>3 ноября Apple запустила продажи iPhone X с «безрамочным» экраном и системой распознавания лица Face ID. Первые российские владельцы новых смартфонов рассказали</p>
-                    <a href="#">Читать далее <i aria-hidden="true" class="fa fa-angle-right"></i></a>
-                </div>
+                <% newsList.forEach(function(item){ %>
+                    <div class="another-news-block">
+                        <h4><%= item.title %></h4>
+                        <p><%= item.description %></p>
+                        <a href="/news/<%= item.cyrillicTitle %>">Читать далее <i aria-hidden="true" class="fa fa-angle-right"></i></a>
+                    </div>
+                <% }); %>
             </aside>
         </div>
     </div>
