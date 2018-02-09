@@ -38,33 +38,41 @@
   <body itemscope itemtype="http://schema.org/EducationalOrganization" class="landing">    
     <header id="main" class="landing-head">
       <nav class="navbar navbar-toggleable-md navbar-transparent">
-        <div class="container">
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Меню">
-            <span class="navbar-toggler-icon"></span>
+        <div class="d-flex align-items-center"> 
+          <button class="navbar-toggler mr-auto" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Меню">
+            <span class="navbar-toggler-icon">
+              <i class="fa fa-bars" aria-hidden="true"></i>
+            </span>
           </button>
-          <div class="collapse navbar-collapse" id="navbar">
-            <a class="navbar-brand navbar-item" href="/">
-              <img src="/images/logo.png" class="d-inline-block align-top mr-2" title="Matics - Logo" itemprop="logo">
-            </a>
-            <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
-              <li class="nav-item navbar-item ml-4">
-                <a class="nav-link" href="/news">Новости</a>
-              </li>
-              <li class="nav-item navbar-item">
-                <a class="nav-link btn btn-light-blue ml-4 px-4" href="/sign-in">Личный кабинет &nbsp;<i class="fa fa-arrow-right" aria-hidden="true"></i></a>
-              </li>
-            </ul>
-          </div>
+          <a class="navbar-brand ml-auto hidden-lg-up" href="/">
+            <img src="/images/logo.png" class="d-inline-block align-top" title="Matics - Logo" itemprop="logo">
+          </a>
+        </div>
+        <div class="collapse navbar-collapse" id="navbar">
+          <a class="navbar-brand navbar-item hidden-lg-down" href="/">
+            <img src="/images/logo.png" class="d-inline-block align-top mr-2" title="Matics - Logo" itemprop="logo">
+          </a>
+          <ul class="navbar-nav ml-auto mx-4 mt-md-1">
+            <li class="nav-item navbar-item ml-4">
+              <a class="nav-link" href="/news">Новости</a>
+            </li>
+            <li class="nav-item navbar-item mx-4 hidden-lg-up">
+              <a class="nav-link" href="/sign-in">Личный кабинет</a>
+            </li>
+            <li class="nav-item navbar-item hidden-md-down ml-4">
+              <a class="nav-link btn btn-light-blue px-4" href="/sign-in">Личный кабинет &nbsp;<i class="fa fa-arrow-right" aria-hidden="true"></i></a>
+            </li>
+          </ul>
         </div>
       </nav>
-      <div class="container mt-5 relative">
+      <div class="container pt-5 pt-md-0 mt-5 relative">
         <div class="row">
-          <div class="col-sm-7 relative">
+          <div class="col-lg-7 relative text-center text-lg-left">
             <h1>Готовьтесь к экзаменам с онлайн-репетитором!</h1>
-            <p>Мы поможем в освоении таких важных школьных дисциплин как математика, физика, информатика, программирование, химия, биология, а так же многих других - ребятам, обучающимся по стандартной школьной программе.</p>
-            <a href="/sign-up" class="btn btn-success btn-lg">Регистрация</a>
+            <p class="hidden-sm-down">Мы поможем в освоении таких важных школьных дисциплин как математика, физика, информатика, программирование, химия, биология, а так же многих других - ребятам, обучающимся по стандартной школьной программе.</p>
+            <a href="/sign-up" class="btn btn-success btn-lg mt-2 mt-md-0">Регистрация</a>
           </div>
-          <div class="col-sm-5">
+          <div class="col-lg-5 mt-5 mt-lg-0 hidden-md-down">
             <div class="header-form">
               <h3>Закажите обратный звонок!</h3>
               <div class="form-group"><label for="name">Как Вас зовут?</label><input type="text" id="name" placeholder="Ваше имя" class="form-control"></div>
@@ -76,7 +84,7 @@
           </div>
         </div>
       </div>
-      <div class="subjects-block">
+      <div class="subjects-block hidden-md-down">
         <div class="container-fluid">
           <div class="row">
             <div class="col-sm-2 text-center">
@@ -122,19 +130,20 @@
     <section>
       <div class="container">
         <div class="row">
-          <div class="col-sm-6">
+          <div class="col-md-6">
             <h2 class="article-title">Различные образовательные программы</h2>
             <p class="article-p">Мы поможем в освоении таких важных школьных дисциплин как математика, физика, информатика, программирование, химия, биология, а так же многих других - ребятам, обучающимся по стандартной школьной программе. Подберем для ребенка квалифицированного преподавателя, который составит индивидуальный план обучения и начнет работу с ним.</p>
+            <a href="#" class="btn btn-secondary">Наши программы</a>
           </div>
-          <div class="col-sm-6"><img src="/images/article-img-new-1.svg" alt="Различные образовательные программы" title="Различные образовательные программы" class="img-fluid"></div>
+          <div class="col-sm-6 hidden-md-down"><img src="/images/article-img-new-1.svg" alt="Различные образовательные программы" title="Различные образовательные программы" class="img-fluid"></div>
         </div>
       </div>
     </section>
     <section>
       <div class="container">
         <div class="row">
-          <div class="col-sm-6"><img src="/images/article-img-new-2.svg" alt="Преподаватели Высшей категории" title="Преподаватели Высшей категории" class="img-fluid"></div>
-          <div class="col-sm-6">
+          <div class="col-md-6 hidden-md-down"><img src="/images/article-img-new-2.svg" alt="Преподаватели Высшей категории" title="Преподаватели Высшей категории" class="img-fluid"></div>
+          <div class="col-md-6">
             <h2 class="article-title">Преподаватели Высшей категории</h2>
             <p class="article-p">Наши учителя имеют многолетний опыт работы в физико-математических школах, внушительное портфолио собственных профессиональных и научных достижений, впечатляющее количество учеников – призеров международных, республиканских и городских олимпиад. </p>
             <button data-toggle="modal" data-target="#callBackModal" class="btn btn-secondary">Заказать консультационный звонок</button>
@@ -145,27 +154,27 @@
     <section>
       <div class="container">
         <div class="row">
-          <div class="col-sm-6">
+          <div class="col-md-6">
             <h2 class="article-title">Не нужно никуда ехать</h2>
             <p class="article-p">Обучаясь в нашем онлайн центре, ваш ребенок не будет привязан к определенному времени встречи с учителем, а Вы, выбирая репетитора для своего ребенка, не будете ограничены географическим положением педагога – и это несомненное преимуществом онлайн обучения. Для комфортного обучения ребенка, досточно иметь точку доступа в интернет в виде персонального компьютера, планшета и даже обычного смартфона.</p>
             <a href="/faq" class="btn btn-secondary">Часто задаваемые вопросы</a>
           </div>
-          <div class="col-sm-6"><img src="/images/article-img-new-3.svg" alt="Не нужно никуда ехать" title="Не нужно никуда ехать" class="img-fluid"></div>
+          <div class="col-md-6 hidden-md-down"><img src="/images/article-img-new-3.svg" alt="Не нужно никуда ехать" title="Не нужно никуда ехать" class="img-fluid"></div>
         </div>
       </div>
     </section>
     <section class="gradient-bg">
       <div class="container">
-        <div class="row d-flex align-items-center">
-          <div class="col-sm-6">
+        <div class="row d-md-flex align-items-center">
+          <div class="col-md-6">
             <p class="p-0 m-0">Оставьте нам свой E-mail и мы будем информировать Вас о новых событиях портала, новостях, скидках и о многом другом!</p>
           </div>
-          <div class="col-sm-6">
+          <div class="col-md-6 mt-3 mt-md-0 px-0">
             <div class="form-group row m-0 p-0">
-              <div class="col-sm-8">
+              <div class="col-md-8">
                 <input type="text" class="form-control mb-2 mr-sm-2 mb-sm-0" id="email" placeholder="Ваш E-mail">
               </div>
-              <div class="col-sm-4">
+              <div class="col-md-4 mt-3 mt-md-0">
                 <button type="submit" class="btn btn-success">Подписаться</button>
               </div>
             </div>
@@ -206,7 +215,7 @@
           </div>
         </div>
         <div class="row">
-          <div class="col-sm-4">
+          <div class="col-md-4">
             <div onClick="window.location.href='news/iphone-x-den-pervii-mneniya-predprinimatelei-i-pokupatelei'" class="news-card">
               <div style="background-image: url('/uploads/1509918193617-32434.jpeg')" class="news-card-img"></div>
               <div class="news-card-body">
@@ -220,7 +229,7 @@
               </div>
             </div>
           </div>
-          <div class="col-sm-4">
+          <div class="col-md-4">
             <div onClick="window.location.href='news/glava-amazon-dzheff-bezos-za-nedelyu-prodal-akcii-kompanii-na-1-mlrd'" class="news-card">
               <div style="background-image: url('/uploads/1509917826177-123.jpeg')" class="news-card-img"></div>
               <div class="news-card-body">
@@ -234,7 +243,7 @@
               </div>
             </div>
           </div>
-          <div class="col-sm-4">
+          <div class="col-md-4">
             <div onClick="window.location.href='news/issledovanie-portret-naibolee-aktivnoi-ukrainskoi-auditorii-telegram'" class="news-card">
               <div style="background-image: url('/uploads/1509916291426-Без названия (1).jpeg')" class="news-card-img"></div>
               <div class="news-card-body">
