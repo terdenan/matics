@@ -156,7 +156,7 @@ input[type=text], input[type=submit], textarea{
 
 @media (max-width: 991px) {
   .main-content {
-    margin-top: 70px;
+    margin-top: 30px;
   }
 
   .form-head {
@@ -309,6 +309,11 @@ hr {
 
 .navbar i {
   font-size: 14px;
+}
+
+.navbar-toggler-icon i {
+  font-size: 24px;
+  color: #fff;
 }
 
 .alert-top-fixed {
@@ -976,7 +981,7 @@ hr {
 
 @media (max-width: 991px) {
   .landing-head h1 {
-    font-size: 30px;
+    font-size: 45px;
   }
 
   .landing-head {
@@ -995,7 +1000,13 @@ hr {
 
 @media (max-width: 767px) {
   .landing-head h1 {
-    font-size: 26px;
+    font-size: 41px;
+  }
+}
+
+@media (max-width: 450px) {
+  .landing-head h1 {
+    font-size: 30px;
   }
 }
 

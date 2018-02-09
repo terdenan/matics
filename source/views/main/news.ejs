@@ -26,23 +26,29 @@
 <body class="landing">
     <!-- NAVBAR-->
     <nav class="navbar navbar-toggleable-md navbar-inverse">
-        <div class="container d-flex align-items-center">
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Меню">
+        <div class="d-flex align-items-center">
+            <button class="navbar-toggler mt-2 ml-2" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Меню">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse" id="navbar">
-                <a class="navbar-brand navbar-item" href="/">
-                  <img src="/images/logo.png" class="d-inline-block align-top mr-2" title="Matics - Logo" itemprop="logo">
-                </a>
-                <ul class="navbar-nav ml-auto mt-2 mt-lg-0 d-flex align-items-center">
-                  <li class="nav-item navbar-item ml-4">
-                    <a class="nav-link" href="/news">Новости</a>
-                  </li>
-                  <li class="nav-item navbar-item">
-                    <a class="nav-link btn btn-light-blue ml-4 px-4" href="/sign-in">Личный кабинет &nbsp;<i class="fa fa-arrow-right" aria-hidden="true"></i></a>
-                  </li>
-                </ul>
-            </div>
+            <a class="navbar-brand ml-auto hidden-lg-up" href="/">
+                <img src="/images/logo.png" class="d-inline-block align-top" title="Matics - Logo" itemprop="logo">
+            </a>
+        </div>
+        <div class="collapse navbar-collapse" id="navbar">
+            <a class="navbar-brand navbar-item" href="/">
+              <img src="/images/logo.png" class="d-inline-block align-top mr-2 hidden-lg-down" title="Matics - Logo" itemprop="logo">
+            </a>
+            <ul class="navbar-nav ml-auto mx-4 mt-md-1">
+                <li class="nav-item navbar-item ml-4">
+                  <a class="nav-link" href="/news">Новости</a>
+                </li>
+                <li class="nav-item navbar-item mx-4 hidden-lg-up">
+                  <a class="nav-link" href="/sign-in">Личный кабинет</a>
+                </li>
+                <li class="nav-item navbar-item hidden-md-down ml-4">
+                  <a class="nav-link btn btn-light-blue px-4" href="/sign-in">Личный кабинет &nbsp;<i class="fa fa-arrow-right" aria-hidden="true"></i></a>
+                </li>
+            </ul>
         </div>
     </nav>
     <!-- CONTENT-->
@@ -57,7 +63,7 @@
     </div>
     <div class="container">
         <div class="row">
-            <div class="col-sm-4">
+            <div class="col-md-4">
                 <div onClick="window.location.href='news/iphone-x-den-pervii-mneniya-predprinimatelei-i-pokupatelei'" class="news-card">
                     <div style="background-image: url('/uploads/1509918193617-32434.jpeg')" class="news-card-img"></div>
                     <div class="news-card-body">
