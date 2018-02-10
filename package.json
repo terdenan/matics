@@ -23,9 +23,11 @@
     "koa-router": "^7.3.0",
     "koa-static": "^4.0.2",
     "koa-subdomain": "^2.1.0",
+    "moment": "^2.20.1",
     "mongoose": "^4.12.5",
     "node-telegram-bot-api": "^0.30.0",
     "vue": "^2.5.13",
-    "vue-router": "^3.0.1"
+    "vue-router": "^3.0.1",
+    "xml2js": "^0.4.19"
   }
 }
