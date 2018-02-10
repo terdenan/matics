@@ -4,12 +4,21 @@ const createNewsController = require('../controllers/news/create');
 const getNewsController = require('../controllers/news/get-news');
 const deleteNewsController = require('../controllers/news/delete');
 
+const createBidController = require('../controllers/bids/create');
+
+const createSubscriberCtrl = require('../controllers/subscribers/create');
+
 router.post('/news', createNewsController);
 router.delete('/news/:title', deleteNewsController);
 router.get('/news/:title', getNewsController);
 
+router.post('/bid', createBidController);
+
+router.post('/subscriber', createSubscriberCtrl);
+
 router.get('/', async ctx => {
-    await ctx.render('main/index');
+    const news = await ctx.newsModel.getRecent(3);
+    await ctx.render('main/index', {news});
 });
 
 router.get('/news', async ctx => {

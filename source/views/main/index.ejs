@@ -225,48 +225,27 @@
           </div>
         </div>
         <div class="row">
-          <div class="col-md-4">
-            <div onClick="window.location.href='news/iphone-x-den-pervii-mneniya-predprinimatelei-i-pokupatelei'" class="news-card">
-              <div style="background-image: url('/uploads/1509918193617-32434.jpeg')" class="news-card-img"></div>
-              <div class="news-card-body">
-                <h6>06.11.2017</h6>
-                <h2>iPhone X, день первый: мнения предпринимателей и покупателей</h2>
-                <p>3 ноября Apple запустила продажи iPhone X с «безрамочным» экраном и системой распознавания лица Face ID. Первые российские владельцы новых смартфонов рассказали</p>
-              </div>
-              <div class="news-card-footer">
-                <div class="news-card-footer-author"><img src="/images/editor-img.png" alt="Редактор портала Matics.kz" title="Ольга Сладких"><span>Ольга Сладких</span></div>
-                <div class="news-card-button"><a href="news/iphone-x-den-pervii-mneniya-predprinimatelei-i-pokupatelei" class="btn btn-succes btn-block">Перейти к новости <i aria-hidden="true" class="fa fa-angle-right"></i></a></div>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div onClick="window.location.href='news/glava-amazon-dzheff-bezos-za-nedelyu-prodal-akcii-kompanii-na-1-mlrd'" class="news-card">
-              <div style="background-image: url('/uploads/1509917826177-123.jpeg')" class="news-card-img"></div>
-              <div class="news-card-body">
-                <h6>06.11.2017</h6>
-                <h2>Глава Amazon Джефф Безос за неделю продал акции компании на $1 млрд</h2>
-                <p>Основатель и глава ритейлера Amazon Джефф Безоc в начале ноября 2017 года продал акции компании на $1 млрд. Это первая подобная сделка Безоса на такую сумму.</p>
-              </div>
-              <div class="news-card-footer">
-                <div class="news-card-footer-author"><img src="/images/editor-img.png" alt="Редактор портала Matics.kz" title="Ольга Сладких"><span>Ольга Сладких</span></div>
-                <div class="news-card-button"><a href="news/glava-amazon-dzheff-bezos-za-nedelyu-prodal-akcii-kompanii-na-1-mlrd" class="btn btn-succes btn-block">Перейти к новости <i aria-hidden="true" class="fa fa-angle-right"></i></a></div>
+          <% news.forEach(function(item){ %>
+            <div class="col-md-4">
+              <div onClick="window.location.href='news/<%= item.cyrillicTitle %>'" class="news-card">
+                <div style="background-image: url(<%= item.photoUrl %>)" class="news-card-img"></div>
+                <div class="news-card-body">
+                  <% let year = item.date.getFullYear() %>
+                  <% let month = item.date.getMonth() + 1 %>
+                  <% let date = item.date.getDate() %>
+                  <% if (month < 10) month = '0' + month %>
+                  <% if (date < 10) date = '0' + date %>
+                  <h6><%= date %>.<%= month %>.<%= year %></h6>
+                  <h2><%= item.title %></h2>
+                  <p><%= item.description %></p>
+                </div>
+                <div class="news-card-footer">
+                  <div class="news-card-footer-author"><img src="/images/editor-img.png" alt="Редактор портала Matics.kz" title="Ольга Сладких"><span>Ольга Сладких</span></div>
+                  <div class="news-card-button"><a href="news/<%= item.cyrillicTitle %>" class="btn btn-succes btn-block">Перейти к новости <i aria-hidden="true" class="fa fa-angle-right"></i></a></div>
+                </div>
               </div>
             </div>
-          </div>
-          <div class="col-md-4">
-            <div onClick="window.location.href='news/issledovanie-portret-naibolee-aktivnoi-ukrainskoi-auditorii-telegram'" class="news-card">
-              <div style="background-image: url('/uploads/1509916291426-Без названия (1).jpeg')" class="news-card-img"></div>
-              <div class="news-card-body">
-                <h6>06.11.2017</h6>
-                <h2>Исследование: портрет наиболее активной украинской аудитории Telegram</h2>
-                <p>Автор канала «SMM в Telegram» Антон Проценко и его коллега Максим Каждан в августе 2017 года выпустили детальное исследование русскоязычной аудитории мессенджер</p>
-              </div>
-              <div class="news-card-footer">
-                <div class="news-card-footer-author"><img src="/images/editor-img.png" alt="Редактор портала Matics.kz" title="Ольга Сладких"><span>Ольга Сладких</span></div>
-                <div class="news-card-button"><a href="news/issledovanie-portret-naibolee-aktivnoi-ukrainskoi-auditorii-telegram" class="btn btn-succes btn-block">Перейти к новости <i aria-hidden="true" class="fa fa-angle-right"></i></a></div>
-              </div>
-            </div>
-          </div>
+          <% }); %>
           <div class="container">
             <div class="row">
               <div class="col-12 text-center">

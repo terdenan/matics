@@ -4,6 +4,8 @@ const fs = require('fs');
 const http = require('http');
 const https = require('https');
 
+const TelegramBot = require('node-telegram-bot-api');
+
 const Koa = require('koa');
 const Subdomain = require('koa-subdomain');
 const compress = require('koa-compress');
@@ -17,6 +19,8 @@ const subdomain = new Subdomain();
 const mainRouter = require('./routers/app');
 
 const NewsModel = require('./models/news');
+const BidsModel = require('./models/bids');
+const SubscriberModel = require('./models/subscribers');
 
 const mongoose = require('mongoose');
 
@@ -63,7 +67,16 @@ app.use(async (ctx, next) => {
 });
 
 app.use(async (ctx, next) => {
+
     ctx.newsModel = new NewsModel();
+    ctx.bidsModel = new BidsModel();
+    ctx.subscriberModel = new SubscriberModel();
+
+    ctx.isProduction = isProduction;
+    if (isProduction) {
+        ctx.telegramBot = new TelegramBot(config.telegram.token, {polling: true});
+    }
+
     await next();
 });
 
