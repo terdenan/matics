@@ -21,15 +21,12 @@
 
     <link href="/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="/css/font-awesome.min.css">
-    <link href="/css/owl.carousel.min.css" rel="stylesheet">
-    <link href="/css/owl.theme.default.min.css" rel="stylesheet">
     <link href="/css/default.css" rel="stylesheet">
     <link href="/css/animate.css" rel="stylesheet">
 
     <script type="text/javascript" src="/js/jquery.min.js"></script>
     <script type="text/javascript" src="/js/tether.min.js"></script>
     <script type="text/javascript" src="/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="/js/viewportchecker.js" defer></script>
 
     <!--[if IE]>
     <link rel="stylesheet" href="https://rawgit.com/codefucker/finalReject/master/reject/reject.css" media="all">
@@ -73,14 +70,24 @@
             <a href="/sign-up" class="btn btn-success btn-lg mt-2 mt-md-0">Регистрация</a>
           </div>
           <div class="col-lg-5 mt-5 mt-lg-0 hidden-md-down">
-            <div class="header-form">
-              <h3>Закажите обратный звонок!</h3>
-              <div class="form-group"><label for="name">Как Вас зовут?</label><input type="text" id="name" placeholder="Ваше имя" class="form-control"></div>
-              <div class="form-group"><label for="tel">Ваш телефон:</label><input type="text" id="tel" placeholder="Ваш телефон" class="form-control"></div>
-              <a href="#" class="btn btn-success btn-block">Заказать</a>
-              <hr>
-              <p>Оставьте небольшую заявку и мы обязательно перезвоним Вам в течение дня и проконсультируем по интересующим вопросам.</p>
-            </div>
+            <form onsubmit="return false;" data-toggle="validator" role="form">
+              <div class="header-form">
+                <h3>Закажите обратный звонок!</h3>
+                <div class="form-group">
+                  <label for="name">Как Вас зовут?</label>
+                  <input type="text" id="name" placeholder="Ваше имя" class="form-control" required>
+                  <div class="help-block with-errors form-control-feedback"></div>
+                </div>
+                <div class="form-group">
+                  <label for="phone">Ваш телефон:</label>
+                  <input type="text" id="phone" placeholder="Ваш телефон" class="form-control bfh-phone" data-format="+7 (ddd) ddd-dd-dd" required>
+                  <div class="help-block with-errors form-control-feedback"></div>
+                </div>
+                <button class="btn btn-success btn-block" onclick="callBack('header')">Заказать</button>
+                <hr>
+                <p id="response">Оставьте небольшую заявку и мы обязательно перезвоним Вам в течение дня и проконсультируем по интересующим вопросам.</p>
+              </div>
+            </form>
           </div>
         </div>
       </div>
@@ -165,19 +172,22 @@
     </section>
     <section class="gradient-bg">
       <div class="container">
-        <div class="row d-md-flex align-items-center">
+        <div class="row d-md-flex">
           <div class="col-md-6">
             <p class="p-0 m-0">Оставьте нам свой E-mail и мы будем информировать Вас о новых событиях портала, новостях, скидках и о многом другом!</p>
           </div>
           <div class="col-md-6 mt-3 mt-md-0 px-0">
-            <div class="form-group row m-0 p-0">
-              <div class="col-md-8">
-                <input type="text" class="form-control mb-2 mr-sm-2 mb-sm-0" id="email" placeholder="Ваш E-mail">
+            <form onsubmit="return false;" data-toggle="validator" role="form">
+              <div class="form-group row m-0 p-0" id="subscribe-response">
+                <div class="col-md-8">
+                  <input type="text" class="form-control mb-2 mr-sm-2 mb-sm-0" id="email" placeholder="Ваш E-mail" required>
+                  <div class="help-block with-errors form-control-feedback" style="color: #fff"></div>
+                </div>
+                <div class="col-md-4 mt-3 mt-md-0">
+                  <button type="submit" class="btn btn-light-blue" onclick="subscribe()">Подписаться</button>
+                </div>
               </div>
-              <div class="col-md-4 mt-3 mt-md-0">
-                <button type="submit" class="btn btn-success">Подписаться</button>
-              </div>
-            </div>
+            </form>
           </div>
         </div>
       </div>
@@ -267,30 +277,42 @@
         </div>
       </div>
     </section>
+
     <div id="callBackModal" role="dialog" class="modal fade">
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
-            <button type="button" data-dismiss="modal" class="close">&times;</button>
             <h4 class="modal-title">Закажите обратный звонок</h4>
+            <button type="button" data-dismiss="modal" class="close">&times;</button>
           </div>
           <div class="modal-body">
-            <div class="form-group"><label for="name">Как Вас зовут?</label><input type="text" id="name" placeholder="Ваше имя" class="form-control"></div>
-            <div class="form-group"><label for="tel">Ваш телефон:</label><input type="text" id="tel" placeholder="Ваш телефон" class="form-control"></div>
-            <a href="#" class="btn btn-success btn-block">Заказать</a>
-            <hr>
-            <p>Оставьте небольшую заявку и мы обязательно перезвоним Вам в течение дня и проконсультируем по интересующим вопросам.</p>
+            <form onsubmit="return false;" data-toggle="validator" role="form">
+              <div class="form-group">
+                <label for="name-modal">Как Вас зовут?</label>
+                <input type="text" id="name-modal" placeholder="Ваше имя" class="form-control" required>
+                <div class="help-block with-errors form-control-feedback"></div>
+              </div>
+              <div class="form-group">
+                <label for="phone-modal">Ваш телефон:</label>
+                <input type="text" id="phone-modal" placeholder="Ваш телефон" class="form-control bfh-phone" data-format="+7 (ddd) ddd-dd-dd" required>
+                <div class="help-block with-errors form-control-feedback"></div>
+              </div>
+              <button class="btn btn-success btn-block" onclick="callBack('modal')">Заказать</button>
+              <hr>
+              <p id="response-modal">Оставьте небольшую заявку и мы обязательно перезвоним Вам в течение дня и проконсультируем по интересующим вопросам.</p>
+            </form>
           </div>
           <div class="modal-footer"> <button type="button" data-dismiss="modal" class="btn btn-secondary">Закрыть</button></div>
         </div>
       </div>
     </div>
+
     <!-- FOOTER-->
     <% include blocks/footer %>
 
-    <script src="/js/bootstrap.min.js" defer></script>
-    <script src="/js/owl.carousel.js" defer></script>
-    <script src="/js/presentation.js" defer></script>
+    <script src="/js/validator.js" defer></script>
+    <script src="/js/formhelpers.min.js" defer></script>
+    <script src="/js/main.js" defer></script>
 
     <span itemprop="address" style="display: none;">Казахстан, Алматы</span>
   </body>

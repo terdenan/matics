@@ -5,18 +5,20 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="3 ноября Apple запустила продажи iPhone X с «безрамочным» экраном и системой распознавания лица Face ID. Первые российские владельцы новых смартфонов рассказали">
+    <meta name="description" content="<%= news.description %>">
     <meta name="author" content="Quve Development">
-    <meta property="og:title" content="iPhone X, день первый: мнения предпринимателей и покупателей">
+    <meta property="og:title" content="<%= news.title %>">
     <meta property="og:type" content="article">
-    <meta property="og:url" content="http://mathlab.kz/news/iphone-x-den-pervii-mneniya-predprinimatelei-i-pokupatelei">
-    <meta property="og:image" content="http://mathlab.kz/uploads/1509918193617-32434.jpeg">
-    <meta property="og:description" content="3 ноября Apple запустила продажи iPhone X с «безрамочным» экраном и системой распознавания лица Face ID. Первые российские владельцы новых смартфонов рассказали">
-    <title>iPhone X, день первый: мнения предпринимателей и покупателей - MathLab.kz</title>
-    <!-- Bootstrap Core CSS-->
-    <link href="/css/bootstrap.min.css" rel="stylesheet">
-    <!--Custom CSS	-->
+    <meta property="og:url" content="http://mathlab.kz/news/<%= news.cyrillicTitle %>">
+    <meta property="og:image" content="http://matics.kz/<%= news.photoUrl %>">
+    <meta property="og:description" content="<%= news.description %>">
+    <title><%= news.title %></title>
+
     <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
+
+    <link href="https://fonts.googleapis.com/css?family=Yeseva+One|Exo+2:300,400,500,600" rel="stylesheet">
+
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="/css/font-awesome.min.css">
     <link href="/css/animate.css" rel="stylesheet">
     <link href="/css/default.css" rel="stylesheet">
@@ -75,13 +77,18 @@
                     <div class="col-sm-9 pt-3">
                         <h6>Поделитесь новостью с друзьями в соц.сетях и мессенджерах:</h6>
                     </div>
-                    <div class="col-sm-4 text-right">
+                    <div class="col-sm-3 text-right">
                         <% let year = news.date.getFullYear() %>
                         <% let month = news.date.getMonth() + 1 %>
                         <% let date = news.date.getDate() %>
                         <% if (month < 10) month = '0' + month %>
                         <% if (date < 10) date = '0' + date %>
                         <div class="post-date"><%= date %>.<%= month %>.<%= year %></div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <div id="share"></div>
                     </div>
                 </div>
             </article>

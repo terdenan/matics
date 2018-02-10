@@ -525,7 +525,7 @@ hr {
 .post-img {
   width: 420px;
   height: 280px;
-  margin: 0 15px 15px 0;
+  margin: 0 15px 0 0;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
