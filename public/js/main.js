@@ -59,7 +59,7 @@ function subscribe(event) {
       },
       success: function (response) {
           $("input").val("");
-          $("#subscribe-response").html(showAlertMessage("Отлично! В скором времени мы Вам перезвоним!", "success"));
+          $("#subscribe-response").html(showAlertMessage("Отлично! Подписка оформлена!", "success"));
       }
     })
   }
