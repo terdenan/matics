@@ -71,7 +71,7 @@
             <% news.forEach(function(item){ %>
                 <div class="col-md-4">
                     <div onClick="window.location.href='news/<%= item.cyrillicTitle %>'" class="news-card">
-                        <div style="background-image: url(<%= item.photoUrl %>)" class="news-card-img"></div>
+                        <div style="background-image: url('/<%= item.photoUrl %>')" class="news-card-img"></div>
                         <div class="news-card-body">
                             <% let year = item.date.getFullYear() %>
                             <% let month = item.date.getMonth() + 1 %>
