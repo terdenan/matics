@@ -73,7 +73,7 @@
                 <h1 class="post-title"><%= news.title %></h1>
                 <div class="post-visualization">
                     <div style="background-image: url('/<%= news.photoUrl %>')" class="post-img"></div>
-                    <%= news.body %>
+                    <%- marked(news.body) %>
                 </div>
                 <div class="row">
                     <div class="col-sm-9 pt-3">
