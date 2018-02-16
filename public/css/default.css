@@ -483,25 +483,27 @@ hr {
    padding-bottom: 5px;
    border-bottom: 1px solid #e6e9ed;
    margin: 10px 0 20px;
-   font-size: 30px;
+   font-size: 1.8rem;
 }
 
-.post-visualization h2 {margin-top: 20px;}
+.post-visualization h2 {
+    font-size: 1.6rem;
+}
 
 .post-visualization h3 {
-   font-size: 25px;
+   font-size: 1.3rem;
 }
 
 .post-visualization h4 {
-   font-size: 20px;
+   font-size: 1.1;
 }
 
 .post-visualization h5 {
-   font-size: 16px; 
+   font-size: 0.9em; 
 }
 
 .post-visualization h6 {
-   font-size: 14px; 
+   font-size: 0.7em; 
 }
 
 .visupost-visualizationalization a {
@@ -853,7 +855,7 @@ hr {
 }
 
 .landing-head {
-  height: 100vh;
+  min-height: 100vh;
   background: url(../images/header-bottom-bg.png) bottom, url(../images/header-right-bg.png) right top, #000e3b;
   background: url(../images/header-bottom-bg.png) bottom, url(../images/header-right-bg.png) right top, -moz-linear-gradient(-45deg, #000e3b 0%, #221f76 25%, #7c3294 75%, #f1ce98 100%);
   background: url(../images/header-bottom-bg.png) bottom, url(../images/header-right-bg.png) right top, -webkit-linear-gradient(-45deg, #000e3b 0%,#221f76 25%,#7c3294 75%,#f1ce98 100%);
@@ -862,14 +864,11 @@ hr {
   color: #fff !important;
   background-repeat: no-repeat;
   position: relative;
+  padding-bottom:  50px;
 }
 
 .subjects-block {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  padding-bottom: 60px;
+  margin-top: 60px;
 }
 
 .subjects-block img {
