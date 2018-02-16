@@ -3,3 +3,4 @@ config/
 public/uploads/
 sslcert/
 public/sitemap.xml
+public/.well-known
