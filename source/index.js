@@ -83,7 +83,7 @@ app.use(async (ctx, next) => {
 
 app.use(bodyParser);
 app.use(koaBody({ multipart: true }));
-app.use(serve('./public'), {hidden: true});
+app.use(serve('./public', {hidden: true}));
 app.use(compress({
     filter: function (content_type) {
     return /text/i.test(content_type)
