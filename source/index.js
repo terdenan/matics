@@ -111,7 +111,7 @@ if (isProduction) {
 
     https
         .createServer(protocolSecrets, app.callback())
-        .listen(config.server.port, listenCallback);
+        .listen(config.server.prod_port, listenCallback);
 
     http
         .createServer((req, res) => {
