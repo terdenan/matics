@@ -112,6 +112,13 @@ if (isProduction) {
     https
         .createServer(protocolSecrets, app.callback())
         .listen(config.server.port, listenCallback);
+
+    http
+        .createServer((req, res) => {
+            res.writeHead(301, { "Location": "https://" + req.headers['host'] + req.url });
+            res.end();
+        })
+        .listen(config.server.port, listenCallback);    
 } else {
     http
         .createServer(app.callback())
