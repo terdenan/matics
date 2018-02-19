@@ -172,6 +172,43 @@ hr {
   border-top: 1px solid #ebeff7;
 }
 
+.faq {
+
+}
+
+.faq .card {
+  border: none;
+}
+
+.faq .card .card-header {
+  border: none;
+  background: none;
+}
+
+.faq .card .card-header {
+  padding-left: 50px;
+  background-image: url(/images/question.png);
+  background-repeat: no-repeat;
+  background-position: 15px center;
+  background-size: 25px;
+}
+
+.faq .card .card-header h5 a {
+  color: #354251;
+}
+
+.faq .card .card-header h5 a:hover {
+  text-decoration: none;
+}
+
+.faq .card .card-header h5 a:focus {
+  text-decoration: none;
+}
+
+.faq .card .card-block {
+  padding: 10px 10px 10px 50px;
+}
+
 .navbar-nav>li>a {
   font-size: 15px;
   color:  #fff;
@@ -1622,6 +1659,64 @@ a.socialIcon:hover, .socialHoverClass {
   -o-transition: all 0.8s;
   -ms-transition: all 0.8s;
   transition: all 0.8s;
+}
+
+.msg {
+    background: #fefefe;
+    color: #666666;
+    font-weight: bold;
+    font-size: small;
+    padding: 12px;
+    padding-left: 16px;
+    border-top: solid 3px #CCCCCC;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    text-align: center;
+    -webkit-box-shadow: 0 10px 10px -5px rgba(0,0,0,.08);
+    -moz-box-shadow: 0 10px 10px -5px rgba(0,0,0,.08);
+    box-shadow: 0 10px 10px -5px rgba(0,0,0,.08);
+}
+.msg-clear {
+    border-color: #fefefe;
+    -webkit-box-shadow: 0 7px 10px -5px rgba(0,0,0,.15);
+       -moz-box-shadow: 0 7px 10px -5px rgba(0,0,0,.15);
+            box-shadow: 0 7px 10px -5px rgba(0,0,0,.15);
+}
+.msg-info {
+    border-color: #b8dbf2;
+}
+.msg-success {
+    border-color: #78d476;
+}
+.msg-warning {
+    border-color: rgba(255,165,0,.5);
+}
+.msg-danger {
+    border-color: #ec8282;
+}
+.msg-primary {
+    border-color: #9ca6f1;
+}
+.msg-magick {
+    border-color: #e0b8f2;
+}
+.msg-info-text {
+    color: #39b3d7;
+}
+.msg-success-text {
+    color: #5db85b;
+}
+.msg-warning-text {
+    color: #db9e34;
+}
+.msg-danger-text {
+    color: #c9302c;
+}
+.msg-primary-text {
+    color: rgba(47,106,215,.9);
+}
+.msg-magick-text {
+    color: #bb39d7;
 }
 
 .loader-md{

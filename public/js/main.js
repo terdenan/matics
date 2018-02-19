@@ -18,24 +18,30 @@ function callBack(location) {
   formData.append('phone', phone);
 
   if (name && phone) {
-    $.ajax({
-      url: "/bid",
-      method: "POST",
-      data: formData,
-      processData: false,
-      contentType: false,
-      error: function (response) {
-          //var errorText = ajaxErrors(response);
-          var errorText = 'Что-то пошло не так, попробуйте позже.'
-          if (location == 'header') $("#response").html(showAlertMessage(errorText, "danger"));
-          else $("#response-modal").html(showAlertMessage(errorText, "danger"));
-      },
-      success: function (response) {
-          $("input").val("");
-          if (location == 'header') $("#response").html(showAlertMessage("Отлично! В скором времени мы Вам перезвоним!", "success"));
-          else $("#response-modal").html(showAlertMessage("Отлично! В скором времени мы Вам перезвоним!", "success"));
-      }
-    })
+    if (phone != '+7 ') {
+      $.ajax({
+        url: "/bid",
+        method: "POST",
+        data: formData,
+        processData: false,
+        contentType: false,
+        error: function (response) {
+            //var errorText = ajaxErrors(response);
+            var errorText = 'Что-то пошло не так, попробуйте позже.'
+            if (location == 'header') $("#response").html(showAlertMessage(errorText, "danger"));
+            else $("#response-modal").html(showAlertMessage(errorText, "danger"));
+        },
+        success: function (response) {
+            $("input").val("");
+            if (location == 'header') $("#response").html(showAlertMessage("Отлично! В скором времени мы Вам перезвоним!", "success"));
+            else $("#response-modal").html(showAlertMessage("Отлично! В скором времени мы Вам перезвоним!", "success"));
+        }
+      })
+    }
+    else {
+      if (location == 'header') $("#response").html(showAlertMessage("Вы не ввели телефонный номер!", "danger"));
+      else $("#response-modal").html(showAlertMessage("Вы не ввели телефонный номер!", "danger"));
+    }
   }
 }
 
@@ -66,8 +72,8 @@ function subscribe(event) {
 }
 
 function showAlertMessage(msg, status) {
-    $(".alert").remove();
-    msg = `<div class="alert alert-${status} alert-dismissible fade show mt-2" role="alert">${msg}</div>`;
+    $(".msg").remove();
+    msg = `<div class="msg msg-${status} msg-${status}-text">${msg}</div>`;
     return msg;
 }
 
