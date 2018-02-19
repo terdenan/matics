@@ -5,7 +5,7 @@ const http = require('http');
 const https = require('https');
 
 const TelegramBot = require('node-telegram-bot-api');
-const telegramBot = new TelegramBot(config.telegram.token, {polling: true});
+//const telegramBot = new TelegramBot(config.telegram.token, {polling: true});
 
 const Koa = require('koa');
 const Subdomain = require('koa-subdomain');

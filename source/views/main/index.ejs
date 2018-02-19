@@ -55,12 +55,15 @@
             <li class="nav-item navbar-item ml-4">
               <a class="nav-link" href="/news">Новости</a>
             </li>
-            <li class="nav-item navbar-item mx-4 hidden-lg-up">
+            <li class="nav-item navbar-item ml-4">
+              <a class="nav-link" href="/faq">FAQ</a>
+            </li>
+            <!-- <li class="nav-item navbar-item mx-4 hidden-lg-up">
               <a class="nav-link" href="/sign-in">Личный кабинет</a>
-            </li>
-            <li class="nav-item navbar-item hidden-md-down ml-4">
+            </li> -->
+            <!-- <li class="nav-item navbar-item hidden-md-down ml-4">
               <a class="nav-link btn btn-light-blue px-4" href="/sign-in">Личный кабинет &nbsp;<i class="fa fa-arrow-right" aria-hidden="true"></i></a>
-            </li>
+            </li> -->
           </ul>
         </div>
       </nav>
@@ -69,7 +72,7 @@
           <div class="col-lg-7 relative text-center text-lg-left">
             <h1>Готовьтесь к экзаменам с онлайн-репетитором!</h1>
             <p class="hidden-sm-down">Мы поможем в освоении таких важных школьных дисциплин как математика, физика, информатика, программирование, химия, биология, а так же многих других - ребятам, обучающимся по стандартной школьной программе.</p>
-            <a href="/sign-up" class="btn btn-success btn-lg mt-2 mt-md-0 hidden-sm-down">Регистрация</a>
+            <button data-toggle="modal" data-target="#callBackModal" class="btn btn-success btn-lg mt-2 mt-md-0 hidden-sm-down">Подобрать репетитора!</button>
             <button data-toggle="modal" data-target="#callBackModal" class="btn btn-success btn-lg mt-2 mt-md-0 hidden-md-up">Подобрать репетитора</button>
           </div>
           <div class="col-lg-5 mt-5 mt-lg-0 hidden-md-down">
@@ -143,7 +146,6 @@
           <div class="col-md-6">
             <h2 class="article-title">Различные образовательные программы</h2>
             <p class="article-p">Мы поможем в освоении таких важных школьных дисциплин как математика, физика, информатика, программирование, химия, биология, а так же многих других - ребятам, обучающимся по стандартной школьной программе. Подберем для ребенка квалифицированного преподавателя, который составит индивидуальный план обучения и начнет работу с ним.</p>
-            <a href="#" class="btn btn-secondary">Наши программы</a>
           </div>
           <div class="col-sm-6 hidden-md-down"><img src="/images/article-img-new-1.svg" alt="Различные образовательные программы" title="Различные образовательные программы" class="img-fluid"></div>
         </div>
@@ -183,7 +185,7 @@
             <form onsubmit="return false;" data-toggle="validator" role="form">
               <div class="form-group row m-0 p-0" id="subscribe-response">
                 <div class="col-md-8">
-                  <input type="text" class="form-control mb-2 mr-sm-2 mb-sm-0" id="email" placeholder="Ваш E-mail" required>
+                  <input type="email" class="form-control mb-2 mr-sm-2 mb-sm-0" id="email" placeholder="Ваш E-mail" required>
                   <div class="help-block with-errors form-control-feedback" style="color: #fff"></div>
                 </div>
                 <div class="col-md-4 mt-3 mt-md-0">

@@ -26,6 +26,10 @@ router.get('/news', async ctx => {
     await ctx.render('main/news', {news});
 });
 
+router.get('/faq', async ctx => {
+   	await ctx.render('main/faq');
+});
+
 router.get('/admin/news', async ctx => {
     await ctx.render('admin/news');
 });
